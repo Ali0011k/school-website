@@ -1,0 +1,34 @@
+{% extends 'users/adminlte.html' %}
+
+{% block title  %}لیست تصاویر نمونه کار ها{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>تصویر نمونه کار</th>
+                <th>شماره تصویر</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for work_image in object_list %}
+                    <tr>
+                        <td><a href="{{work_image.image.url}}" target="_blank" rel="noopener noreferrer"><img src="{{work_image.image.url}}" width="100px" height="60px"></a></td>
+                        <td>{{work_image.pk}}</td>
+                    </tr>
+                {% endfor %}
+               
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+{% endblock %}
